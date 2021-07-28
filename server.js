@@ -1,12 +1,18 @@
 const express = require("express");
-const userRoutes = require("./routes/userRoutes")
+const userRoutes = require("./routes/userRoutes");
+const db = require('./config/db');
 const app = express();
 const port = 3000;
-const db = (mongodb+srv://user:<password>@cluster0.4h0t8.mongodb.net/myFirstDatabase?retryWrites=true&w=majority);
+
 
 app.get("/", (req, res) => {
     res.send("welcome to my api");
 });
+
+// config dotenv for environment variable
+//dotenv.config({path: './config.env'})
+
+db();
 
 // using body-parser
 app.use(express.json());
